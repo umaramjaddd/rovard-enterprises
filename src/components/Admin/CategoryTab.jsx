@@ -29,7 +29,7 @@ export default function CategoryTab({ categories }) {
       dispatch(fetchCategories());
     } catch (err) {
       console.error("Error saving category:", err);
-      alert("Failed to save category.");
+      alert(err.message);
     }
   };
 
