@@ -8,10 +8,10 @@ export default function CategoryCard({ category }) {
   return (
     <Link
       href={`/categories/${category.id}`}
-      className="group relative block aspect-[3/4] overflow-hidden bg-zinc-900"
+      className="group relative block aspect-[4/5] overflow-hidden bg-[#121212] border border-zinc-900 shadow-lg"
     >
-      {/* Image Container */}
-      <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110 opacity-80 group-hover:opacity-100">
+      {/* Image Frame */}
+      <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105 opacity-70 group-hover:opacity-90">
         {isLocal ? (
           <Image
             src={category.image}
@@ -28,25 +28,23 @@ export default function CategoryCard({ category }) {
         )}
       </div>
 
-      {/* Aesthetic Overlay: Dark gradient from bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+      {/* Industrial High-Contrast Grayscale Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10 transition-opacity duration-300"></div>
 
-      {/* Content */}
-      <div className="absolute bottom-0 left-0 w-full p-6 text-center transform transition-transform duration-500 group-hover:-translate-y-2">
-        {/* Accent Line */}
-        <div className="w-8 h-[1px] bg-amber-500 mx-auto mb-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-        
-        <h3 className="font-serif text-2xl text-white tracking-wide">
+      {/* Modern Title Box - Left Aligned exactly like the reference image categories */}
+      <div className="absolute bottom-0 left-0 w-full p-4 text-left z-10 bg-gradient-to-t from-black via-black/80 to-transparent">
+        <h3 className="font-sans font-black text-sm md:text-base text-white uppercase tracking-wider leading-tight group-hover:text-[#cf1d25] transition-colors duration-300">
           {category.name}
         </h3>
         
-        <p className="text-zinc-300 text-xs uppercase tracking-[0.2em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          Explore Collection
+        {/* Modernized indicator matching a professional dynamic app layout */}
+        <p className="text-zinc-400 text-[10px] uppercase tracking-widest mt-1 font-bold flex items-center gap-1 group-hover:text-white transition-colors duration-300">
+          Explore Item <span className="text-[#cf1d25] group-hover:translate-x-1 transition-transform">&rsaquo;</span>
         </p>
       </div>
 
-      {/* Subtle Inner Border on Hover */}
-      <div className="absolute inset-4 border border-white/0 group-hover:border-white/20 transition-all duration-500 pointer-events-none"></div>
+      {/* Clean Brand Corner Border Line on Container Hover instead of internal box outlines */}
+      <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#cf1d25] group-hover:w-full transition-all duration-300 pointer-events-none"></div>
     </Link>
   )
 }

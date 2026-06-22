@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Exact Rovard Brand Palette */
+  --background: hsl(0, 0%, 4%);       /* Deep Onyx Black */
+  --foreground: #000000;       /* Pure White Text */
+  --maroon-primary: #cf1d25;   /* Main Brand Maroon Accent */
+  --maroon-dark: #9b1218;      /* Deep Maroon (Hover states) */
+  --card-bg: #121212;          /* Slightly lighter gray for grids/cards */
+  --border-muted: #27272a;     /* Dark muted borders */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-maroon: var(--maroon-primary);
+  --color-maroon-dark: var(--maroon-dark);
+  --color-card: var(--card-bg);
+  --color-muted-border: var(--border-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

@@ -20,35 +20,30 @@ import {
 
 export default function HomePage() {
   const dispatch = useDispatch();
-
   const { categories, products } = useSelector((state) => state.products);
 
   useEffect(() => {
-    // 🔐 fetch ONLY if not already fetched
     if (categories.length === 0) {
-      console.log("getting categories & subcategories");
       dispatch(fetchCategories());
       dispatch(fetchSubCategories());
     }
-
     if (products.length === 0) {
       dispatch(fetchProducts());
     }
   }, [dispatch, categories.length, products.length]);
  
   return (
-    <main className="flex flex-col bg-white">
+    // Changed bg-white to bg-background for the continuous dark aesthetic
+    <main className="flex flex-col bg-black">
       <HeroSection />
-      <div className="flex flex-col px-3 gap-8 max-w-7xl w-full self-center">
+      <div className="flex flex-col px-4 gap-12 max-w-7xl w-full self-center">
         <CategoryGrid />
         <AllProducts title="Featured Collection" showAll="no" />
         <AboutSection />
         <FAQs />
       </div>
-        <ContactSection />
-   
-        <ShowPieces />
-   
+      <ContactSection />
+      <ShowPieces />
     </main>
   );
 }

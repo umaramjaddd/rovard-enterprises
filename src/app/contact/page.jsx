@@ -2,7 +2,7 @@ import ContactSection from "@/components/Contact";
 
 export default function ContactPage() {
   return (
-  <div className="p-6">
+  <div className="p-6 w-full bg-black">
     
     <ContactSection />
   </div>

@@ -9,21 +9,25 @@ export default function CategoryGrid() {
 
   if (loading && categories.length === 0)
     return (
-      <div className="py-20 flex flex-col items-center">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-600"></div>
-        <p className="mt-4 text-zinc-500 font-serif italic">Loading Collections...</p>
+      <div className="py-20 flex flex-col items-center bg-black">
+        {/* Spinner changed to brand maroon */}
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#cf1d25]"></div>
+        <p className="mt-4 text-zinc-400 font-sans uppercase text-xs tracking-widest font-bold">Loading Collections...</p>
       </div>
     );
 
   return (
-    <section className="py-12 ">
-      <div className="text-center mb-12">
-        <h2 className="font-serif text-3xl md:text-4xl text-zinc-900">Featured Collections</h2>
-        <div className="w-16 h-[2px] bg-amber-700 mx-auto mt-4"></div>
+    <section className="py-12 bg-black">
+      {/* Modern, bold left-aligned header style inspired directly by the "OUR CATEGORIES" section of the layout image */}
+      <div className="text-left mb-8 flex items-center gap-2">
+        <span className="text-[#cf1d25] font-black text-xl tracking-tighter">//</span>
+        <h2 className="font-sans font-black text-2xl md:text-3xl text-white uppercase tracking-wider">
+          Our Categories
+        </h2>
       </div>
 
-      {/* Modern Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Modern, high-performance apparel grid layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {categories.map((cat) => (
           <CategoryCard key={cat.id} category={cat} />
         ))}

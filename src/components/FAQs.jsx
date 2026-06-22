@@ -4,64 +4,28 @@ import { useState } from "react"
 
 const faqs = [
   {
-    question: "What is Arshad Armoury?",
-    answer: "Arshad Armoury is a premium brand crafting leather goods and armour with unmatched craftsmanship."
+    question: "What types of custom apparel do you manufacture?",
+    answer: "We specialize in high-performance sportswear, competitive MMA & boxing gear, industrial safety workwear, sublimation printing, and private label fashion manufacturing."
   },
   {
-    question: "Where are your products made?",
-    answer: "All our products are handcrafted locally using high-quality materials."
+    question: "What is your Minimum Order Quantity (MOQ)?",
+    answer: "Our standard starting baseline is a low MOQ of 50 PCS per design/style, making it highly accessible for emerging sports brands and fitness startups."
   },
   {
-    question: "Do you ship internationally?",
-    answer: "Yes, we ship our products worldwide. Shipping fees may vary depending on the destination."
+    question: "Do you offer international shipping?",
+    answer: "Yes, we offer worldwide shipping options with fast delivery networks, providing secure door-to-door global logistics."
   },
   {
-    question: "Can I customize my order?",
-    answer: "Absolutely! We offer custom orders for select products. Contact us with your requirements."
+    question: "Can I request custom branding and OEM sample mockups?",
+    answer: "Absolutely. We follow an efficient 'How We Work' process: Send your design idea, receive a digital mockup, construct sample production within 5-7 days, and approve before bulk manufacturing."
   },
   {
-    question: "What payment methods do you accept?",
-    answer: "We accept major credit cards, PayPal, and Stripe for secure payments."
+    question: "What certifications do your manufacturing lines hold?",
+    answer: "Our factories adhere to the highest international quality standards, carrying certifications including ISO 9001:2015, BSCI compliance, Sedex, and OEKO-TEX textiles verification."
   },
   {
-    question: "Do you offer refunds or exchanges?",
-    answer: "Yes, we have a 14-day return policy for defective or damaged items."
-  },
-  {
-    question: "How long does shipping take?",
-    answer: "Domestic shipping usually takes 3-7 business days, while international shipping may take 2-4 weeks."
-  },
-  {
-    question: "Can I track my order?",
-    answer: "Yes, once your order is shipped, you will receive a tracking number via email."
-  },
-  {
-    question: "Are your materials ethically sourced?",
-    answer: "Yes, we ensure that all our materials are sourced responsibly and ethically."
-  },
-  {
-    question: "Do you sell to businesses or only individuals?",
-    answer: "We cater to both individual and business clients. Bulk orders can be arranged."
-  },
-  {
-    question: "How can I contact customer support?",
-    answer: "You can reach us via our Contact page or email us directly at support@arshadarmoury.com."
-  },
-  {
-    question: "Do you have a physical store?",
-    answer: "Currently, we operate online only, but you can visit us by appointment."
-  },
-  {
-    question: "Can I request a product catalog?",
-    answer: "Yes, we provide a digital catalog upon request via our Contact page."
-  },
-  {
-    question: "Do you offer gift wrapping?",
-    answer: "Yes, gift wrapping is available for select products during checkout."
-  },
-  {
-    question: "How often do you release new collections?",
-    answer: "We release new collections seasonally, with occasional limited editions throughout the year."
+    question: "What secure payment methods do you support?",
+    answer: "We accommodate professional corporate transactions via standard Wire Transfers (T/T), PayPal processing, Western Union, and MoneyGram accounts."
   }
 ]
 
@@ -69,35 +33,52 @@ export default function FAQs() {
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
-    <section className="max-w-4xl mx-auto px-6 py-24">
-      <div className="text-center mb-16">
-        <h2 className="font-serif text-4xl text-zinc-900 mb-4">Common Inquiries</h2>
-        <p className="text-zinc-500 italic">Everything you need to know about our process</p>
+    <section className="max-w-5xl mx-auto px-4 py-16 bg-black">
+      {/* Modern left-aligned layout header matching the reference image rule */}
+      <div className="text-left mb-10 flex items-center gap-2">
+        <span className="text-[#cf1d25] font-black text-xl tracking-tighter">//</span>
+        <h2 className="font-sans font-black text-2xl md:text-3xl text-white uppercase tracking-wider">
+          Common Inquiries
+        </h2>
       </div>
 
-      <div className="divide-y divide-zinc-200">
-        {faqs.map((faq, index) => (
-          <div key={index} className="py-6">
-            <button
-              className="w-full flex justify-between items-center text-left group"
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+      {/* Accordion List styling shifted into a structured industrial layout */}
+      <div className="space-y-3">
+        {faqs.map((faq, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div 
+              key={index} 
+              className={`border transition-all duration-300 rounded-xs px-5 py-4 bg-[#121212]
+                ${isOpen ? 'border-[#cf1d25] shadow-lg shadow-[#cf1d25]/5' : 'border-zinc-900'}`}
             >
-              <span className={`text-lg transition-colors duration-300 ${openIndex === index ? 'text-amber-700 font-medium' : 'text-zinc-800'}`}>
-                {faq.question}
-              </span>
-              <span className={`transform transition-transform duration-300 ${openIndex === index ? 'rotate-45 text-amber-700' : 'text-zinc-400'}`}>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 4V16M4 10H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square"/>
-                </svg>
-              </span>
-            </button>
-            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-              <p className="text-zinc-600 leading-relaxed max-w-2xl">
-                {faq.answer}
-              </p>
+              <button
+                className="w-full flex justify-between items-center text-left group cursor-pointer"
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+              >
+                <span className={`font-sans font-bold text-sm md:text-base uppercase tracking-wide transition-colors duration-200
+                  ${isOpen ? 'text-[#cf1d25]' : 'text-white group-hover:text-zinc-300'}`}>
+                  {faq.question}
+                </span>
+                
+                {/* Modern industrial dynamic rotating crosshair marker */}
+                <span className={`transform transition-transform duration-300 text-xs
+                  ${isOpen ? 'rotate-45 text-[#cf1d25]' : 'text-zinc-500'}`}>
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 4V16M4 10H16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square"/>
+                  </svg>
+                </span>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out 
+                ${isOpen ? 'max-h-40 opacity-100 mt-3 border-t border-zinc-900 pt-3' : 'max-h-0 opacity-0'}`}>
+                <p className="text-zinc-400 font-sans text-xs md:text-sm tracking-wide uppercase leading-relaxed max-w-3xl">
+                  {faq.answer}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   )
